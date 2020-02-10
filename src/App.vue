@@ -5,7 +5,7 @@
               :firstName="student.firstName"
               :last-name="student.lastName"
               @sendAge="receiveAge"></my-component>
-      Age de la personne : {{student.age}}
+      Age de la personne : {{student.age | ageFilter}}
     </div>
   </div>
 </template>
