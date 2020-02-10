@@ -1,12 +1,13 @@
 <template>
   <div class="hello">
+    <slot name="header"></slot>
     <div>Prénom : {{firstName}}</div>
     <div>Nom : {{lastName}}</div>
     <input type="number" v-model="age" :style="ageStyle"/>
     <button @click="decreaseAge">-</button>
     <button @click="increaseAge">+</button>
     <button @click="sendAge">Envoyer</button>
-    <slot></slot>
+    <slot name="footer"></slot>
   </div>
 </template>
 

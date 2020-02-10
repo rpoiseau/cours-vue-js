@@ -5,7 +5,8 @@
               :firstName="student.firstName"
               :last-name="student.lastName"
               @sendAge="receiveAge">
-        <div>Mon slot est remplacé</div>
+        <div slot="footer">Mon footer</div>
+        <div slot="header">Mon header</div>
       </my-component>
       Age de la personne : {{student.age | ageFilter}}
     </div>
