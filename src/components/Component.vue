@@ -6,6 +6,7 @@
     <button @click="decreaseAge">-</button>
     <button @click="increaseAge">+</button>
     <button @click="sendAge">Envoyer</button>
+    <slot></slot>
   </div>
 </template>
 
