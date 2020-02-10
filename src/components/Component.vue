@@ -7,7 +7,7 @@
     <button @click="decreaseAge">-</button>
     <button @click="increaseAge">+</button>
     <button @click="sendAge">Envoyer</button>
-    <slot name="footer"></slot>
+    <slot name="footer" :userName="firstName + ' ' + lastName"></slot>
   </div>
 </template>
 

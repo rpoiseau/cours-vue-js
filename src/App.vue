@@ -5,7 +5,7 @@
               :firstName="student.firstName"
               :last-name="student.lastName"
               @sendAge="receiveAge">
-        <div slot="footer">Mon footer</div>
+        <template v-slot:footer="user">Mon footer avec mon userName = {{user.userName}}</template>
         <div slot="header">Mon header</div>
       </my-component>
       Age de la personne : {{student.age | ageFilter}}
