@@ -15,14 +15,12 @@
 
 <script>
 import MyComponent from "./components/Component";
-import myMixin from "./utils/mixin.js";`
-`
+
 export default {
   name: 'App',
   components: {
     MyComponent
   },
-  mixins: [myMixin],
   data() {
     return {
       students: [

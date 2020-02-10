@@ -12,11 +12,9 @@
 </template>
 
 <script>
-  import myMixin from "../utils/mixin";
 
   export default {
   name: 'MyComponent',
-  mixins: [myMixin],
   props: {
     firstName: {
       type: String,
