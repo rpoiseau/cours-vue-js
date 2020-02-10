@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Fundamentals/>
+    <my-component
+      :firstName="firstName"
+      last-name="Poiseau"></my-component>
   </div>
 </template>
 
 <script>
-import Fundamentals from "./components/Fundamentals";
+import MyComponent from "./components/Component";
 
 export default {
   name: 'App',
   components: {
-    Fundamentals
+    MyComponent
+  },
+  data() {
+    return {
+      firstName: "Romain"
+    }
   }
 }
 </script>
