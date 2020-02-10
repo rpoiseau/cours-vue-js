@@ -4,7 +4,9 @@
       :firstName="firstName"
       last-name="Poiseau"
       @sendAge="receiveAge"></my-component>
-    <div>Age reçu : {{age}}</div>
+    <div v-if="ageReceived && age > 18">La personne est majeure</div>
+    <div v-else-if="ageReceived && age < 18">La personne est mineure</div>
+    <div v-else>Age non reçu</div>
   </div>
 </template>
 
@@ -19,11 +21,13 @@ export default {
   data() {
     return {
       firstName: "Romain",
-      age: 0
+      age: 0,
+      ageReceived: false
     }
   },
   methods: {
     receiveAge(age) {
+      this.ageReceived = true;
       this.age = age;
     }
   }
