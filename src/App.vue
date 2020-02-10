@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <my-component
-      :firstName="firstName"
-      last-name="Poiseau"></my-component>
+    <my-component></my-component>
   </div>
 </template>
 
@@ -16,7 +14,6 @@ export default {
   },
   data() {
     return {
-      firstName: "Romain"
     }
   }
 }
