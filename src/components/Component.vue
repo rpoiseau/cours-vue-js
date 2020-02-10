@@ -36,7 +36,7 @@ export default {
       this.age--;
     },
     sendAge() {
-      this.$emit('sendAge', this.age);
+      this.$emit('sendAge', this.firstName, this.age);
     }
   },
   computed: {

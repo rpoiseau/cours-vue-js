@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <my-component
-      :firstName="firstName"
-      last-name="Poiseau"
-      @sendAge="receiveAge"></my-component>
-    <div v-if="ageReceived && age > 18">La personne est majeure</div>
-    <div v-else-if="ageReceived && age < 18">La personne est mineure</div>
-    <div v-else>Age non reçu</div>
+    <div v-for="(student, index) in students"  :key="index">
+      <my-component
+              :firstName="student.firstName"
+              :last-name="student.lastName"
+              @sendAge="receiveAge"></my-component>
+      Age de la personne : {{student.age}}
+    </div>
   </div>
 </template>
 
@@ -20,15 +20,19 @@ export default {
   },
   data() {
     return {
-      firstName: "Romain",
-      age: 0,
-      ageReceived: false
+      students: [
+        {firstName: 'Romain', lastName: 'Poiseau', age: 0},
+        {firstName: 'Michel', lastName: 'Gomez', age: 0},
+        {firstName: 'Jean', lastName: 'Marc', age: 0},
+      ]
     }
   },
   methods: {
-    receiveAge(age) {
-      this.ageReceived = true;
-      this.age = age;
+    receiveAge(firstName, age) {
+      const studentIndex = this.students.findIndex(student => student.firstName === firstName);
+      if (studentIndex !== -1) {
+        this.students[studentIndex].age = age;
+      }
     }
   }
 }
