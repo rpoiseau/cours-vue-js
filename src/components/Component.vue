@@ -2,7 +2,7 @@
   <div class="hello">
     <div>Prénom : {{firstName}}</div>
     <div>Nom : {{lastName}}</div>
-    <div :style="ageStyle">Age : {{age}} {{age > 1 ? 'ans' : 'an'}}</div>
+    <input type="number" v-model="age" :style="ageStyle"/>
     <button @click="decreaseAge">-</button>
     <button @click="increaseAge">+</button>
     <button @click="sendAge">Envoyer</button>
@@ -10,7 +10,8 @@
 </template>
 
 <script>
-export default {
+
+  export default {
   name: 'MyComponent',
   props: {
     firstName: {
@@ -42,11 +43,6 @@ export default {
   computed: {
     ageStyle() {
       return this.age < 1 ? 'background-color: red;' : 'background-color: green';
-    }
-  },
-  watch: {
-    age(newValue, oldValue) {
-      console.log(`myNumber change new value : ${newValue}, old value : ${oldValue}`);
     }
   }
 }
