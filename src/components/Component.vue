@@ -5,6 +5,7 @@
     <div :style="ageStyle">Age : {{age}} {{age > 1 ? 'ans' : 'an'}}</div>
     <button @click="decreaseAge">-</button>
     <button @click="increaseAge">+</button>
+    <button @click="sendAge">Envoyer</button>
   </div>
 </template>
 
@@ -12,13 +13,19 @@
 export default {
   name: 'MyComponent',
   props: {
-
+    firstName: {
+      type: String,
+      required: true
+    },
+    lastName: {
+      type: String,
+      required: false,
+      default: "Anonyme"
+    }
   },
   data() {
     return {
       age: 0,
-      firstname: "Romain",
-      lastname: "Poiseau"
     }
   },
   methods: {
@@ -27,6 +34,9 @@ export default {
     },
     decreaseAge() {
       this.age--;
+    },
+    sendAge() {
+      this.$emit('sendAge', this.age);
     }
   },
   computed: {

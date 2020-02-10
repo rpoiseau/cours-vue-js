@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <my-component></my-component>
+    <my-component
+      :firstName="firstName"
+      last-name="Poiseau"
+      @sendAge="receiveAge"></my-component>
+    <div>Age reçu : {{age}}</div>
   </div>
 </template>
 
@@ -14,6 +18,13 @@ export default {
   },
   data() {
     return {
+      firstName: "Romain",
+      age: 0
+    }
+  },
+  methods: {
+    receiveAge(age) {
+      this.age = age;
     }
   }
 }
