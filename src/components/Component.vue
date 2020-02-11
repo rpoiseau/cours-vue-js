@@ -1,53 +1,27 @@
 <template>
   <div class="hello">
-    <slot name="header"></slot>
-    <div>Prénom : {{firstName}}</div>
-    <div>Nom : {{lastName}}</div>
-    <input type="number" v-model="age" :style="ageStyle"/>
-    <button @click="decreaseAge">-</button>
-    <button @click="increaseAge">+</button>
-    <button @click="sendAge">Envoyer</button>
-    <slot name="footer" :userName="firstName + ' ' + lastName"></slot>
+    <input v-model="age" type="number"/>
+    <button @click="sendToMyStore">Envoyer</button>
   </div>
 </template>
 
 <script>
-  import myMixin from "../utils/mixin";
 
   export default {
   name: 'MyComponent',
-  mixins: [myMixin],
   props: {
-    firstName: {
-      type: String,
-      required: true
-    },
-    lastName: {
-      type: String,
-      required: false,
-      default: "Anonyme"
-    }
   },
   data() {
     return {
-      age: 0,
+      age: 0
     }
   },
   methods: {
-    increaseAge() {
-      this.age++;
-    },
-    decreaseAge() {
-      this.age--;
-    },
-    sendAge() {
-      this.$emit('sendAge', this.firstName, this.age);
+    sendToMyStore() {
+      this.$store.commit('SET_AGE', this.age);
     }
   },
   computed: {
-    ageStyle() {
-      return this.age < 1 ? 'background-color: red;' : 'background-color: green';
-    }
   }
 }
 </script>
