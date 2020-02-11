@@ -2,24 +2,21 @@
   <div id="app">
     <my-component></my-component>
     <div>
-      Mon age via mon store : {{myAge}}
+      Mon age via mon store : {{age}}
     </div>
   </div>
 </template>
 
 <script>
 import MyComponent from "./components/Component";
+import {mapState} from "vuex";
 
 export default {
   name: 'App',
   components: {
     MyComponent
   },
-  computed: {
-    myAge() {
-      return this.$store.state.age;
-    }
-  },
+  computed: mapState(['age']),
   data() {
     return {
     }
