@@ -12,7 +12,19 @@ const routes = [
   {
     path: '/home',
     name: "Home",
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: '',
+        name: 'Child1',
+        component: () => import('../components/HomeChild1')
+      },
+      {
+        path: '/home/child2',
+        name: 'Child2',
+        component: () => import('../components/HomeChild2')
+      }
+    ]
   },
   {
     path: '/about/:id',
